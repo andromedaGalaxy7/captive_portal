@@ -9,7 +9,7 @@ DNSMASQ_CONFIG = "dnsmasq.conf"
 INTERFACE_REPLACE_STRING = "%INTERFACE%"
 
 HOSTAPD_TARGET_PATH = "/etc/hostapd/hostapd.conf"
-DNSMASQ_TARGET_PATH = "/"
+DNSMASQ_TARGET_PATH = "/etc/dnsmasq.conf"
 
 # TIME TO WAIT FOR ACCESS POINT TO FIRE
 AP_WAIT_DELAY = 10 # Seconds
