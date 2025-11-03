@@ -70,7 +70,7 @@ def start_hotspot(interface_name:str) -> None:
     print("Starting dnsmasq service")
     os.system("systemctl start dnsmasq.service")
 
-    print("\n\nWiFi Hotpost has been started successfully.\n\tEnjoy !!! ")
+    print("\n\nWiFi Hotspot has been started successfully.\n\tEnjoy !!! ")
 
 def abrupt_exit(error_msg:str) -> None:
     """
@@ -87,3 +87,10 @@ def abrupt_exit(error_msg:str) -> None:
 -----------------------
 """
 
+if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        input_interface_name = input("Please type the name of the interface to run the hotspot >>")
+    else:
+        input_interface_name = sys.argv[1]
+
+    start_hotspot(input_interface_name)
