@@ -17,6 +17,9 @@ AP_WAIT_DELAY = 10 # Seconds
 # IP ADDRESS CONFIG
 SELF_IP_ADDRESS = "192.168.1.1/24"
 
+# INTERFACE WITH WAN ACCESS
+WAN_INTERFACE = ""
+
 def start_hotspot(interface_name:str) -> None:
     """
     Start a WiFi hotspot on the given interface
@@ -70,6 +73,18 @@ def start_hotspot(interface_name:str) -> None:
     print("Starting dnsmasq service")
     os.system("systemctl start dnsmasq.service")
 
+    # Add iptable masquerading rule
+    print("Adding iptable rule to allow WAN/INTERNET access")
+    if WAN_INTERFACE:
+        alternate_interface = WAN_INTERFACE
+    elif interface_name.endswith("0"):
+        alternate_interface = "wlan1"
+    else:
+        alternate_interface = "wlan0"
+    print(f"Assuming interface {alternate_interface} has internet access.")
+    os.system(f"iptables --table nat -A POSTROUTING -o {alternate_interface} -j MASQUERADE")
+
+
     print("\n\nWiFi Hotspot has been started successfully.\n\tEnjoy !!! ")
 
 def abrupt_exit(error_msg:str) -> None:
@@ -92,5 +107,7 @@ if __name__ == "__main__":
         input_interface_name = input("Please type the name of the interface to run the hotspot >>")
     else:
         input_interface_name = sys.argv[1]
+        if len(sys.argv) == 3:
+            globals()["WAN_INTERFACE"] = sys.argv[2]
 
     start_hotspot(input_interface_name)
