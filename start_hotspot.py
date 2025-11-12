@@ -2,6 +2,7 @@ import os
 import sys
 import file_io
 import time
+import network_io
 
 # CONFIG FILES PATH
 HOSTAPD_CONFIG = "hostapd.conf"
@@ -20,10 +21,12 @@ SELF_IP_ADDRESS = "192.168.1.1/24"
 # INTERFACE WITH WAN ACCESS
 WAN_INTERFACE = ""
 
-def start_hotspot(interface_name:str) -> None:
+def start_hotspot(interface_name:str, internet_enabled=True) -> None:
     """
     Start a WiFi hotspot on the given interface
     :param interface_name: The interface to start the WiFi hotspot on
+    :param internet_enabled: True -> Enables IP Masquerading to the interface with default route
+                             False -> Does nothing, and the new hotspot is not connected to the internet
     :return: None
     """
     print(f"Interface name received: {interface_name}")
