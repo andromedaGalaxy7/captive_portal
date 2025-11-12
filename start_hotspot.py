@@ -76,18 +76,19 @@ def start_hotspot(interface_name:str, internet_enabled=True) -> None:
     print("Starting dnsmasq service")
     os.system("systemctl start dnsmasq.service")
 
-    # Add iptable masquerading rule
-    print("Adding iptable rule to allow WAN/INTERNET access")
-    if WAN_INTERFACE:
-        alternate_interface = WAN_INTERFACE
-    elif interface_name.endswith("0"):
-        alternate_interface = "wlan1"
-    else:
-        alternate_interface = "wlan0"
-    print(f"Assuming interface {alternate_interface} has internet access.")
-    os.system(f"iptables --table nat -A POSTROUTING -o {alternate_interface} -j MASQUERADE")
+    if internet_enabled:
+        # Add iptable masquerading rule
+        print("Adding iptable rule to allow WAN/INTERNET access")
+        if WAN_INTERFACE:
+            alternate_interface = WAN_INTERFACE
+        else:
+            alternate_interface = network_io.find_gateway_interface()
 
-
+        if alternate_interface:
+            print(f"Assuming interface {alternate_interface} has internet access.")
+            os.system(f"iptables --table nat -A POSTROUTING -o {alternate_interface} -j MASQUERADE")
+        else:
+            print("No interface has a default route. Please fix your internet connection to allow internet access to the hotspot.")
     print("\n\nWiFi Hotspot has been started successfully.\n\tEnjoy !!! ")
 
 def abrupt_exit(error_msg:str) -> None:
