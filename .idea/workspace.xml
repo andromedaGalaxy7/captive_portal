@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c911f4a7-3206-4537-8d10-2625914b93e0" name="Changes" comment="start_hotspot.py uses network_io to find default interface&#10;And automatically uses the default interface to add ip masquerading rule.">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/wifi_hotspot.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/static/thank_you.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dnsmasq.conf" beforeDir="false" afterPath="$PROJECT_DIR$/dnsmasq.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network_io.py" beforeDir="false" afterPath="$PROJECT_DIR$/network_io.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start_hotspot.py" beforeDir="false" afterPath="$PROJECT_DIR$/start_hotspot.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="34y7vHbd9FxusNV8hhTUbDHYPH6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.app.executor": "Run",
+    "Python.network_io.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-164cda30dcd9-0af03a5fa574-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.26830.99" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c911f4a7-3206-4537-8d10-2625914b93e0" name="Changes" comment="" />
+      <created>1762174186338</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1762174186338</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Initial Commit">
+      <option name="closed" value="true" />
+      <created>1762175894641</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1762175894641</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added detailed status messages">
+      <option name="closed" value="true" />
+      <created>1762176368063</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1762176368063</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added main subroutine // entry point">
+      <option name="closed" value="true" />
+      <created>1762176669514</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1762176669514</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Typo in DNSMASQ_TARGET_PATH variable">
+      <option name="closed" value="true" />
+      <created>1762176760224</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1762176760224</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Created network_io&#10;A helper module to find the interface that has the default gateway. &#10;Uses iptools' ip by default.">
+      <option name="closed" value="true" />
+      <created>1762951404482</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1762951404482</updated>
+    </task>
+    <task id="LOCAL-00006" summary="start_hotspot.py uses network_io to find default interface&#10;And automatically uses the default interface to add ip masquerading rule.">
+      <option name="closed" value="true" />
+      <created>1762951650570</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1762951650570</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial Commit" />
+    <MESSAGE value="Added detailed status messages" />
+    <MESSAGE value="Added main subroutine // entry point" />
+    <MESSAGE value="Typo in DNSMASQ_TARGET_PATH variable" />
+    <MESSAGE value="Created network_io&#10;A helper module to find the interface that has the default gateway. &#10;Uses iptools' ip by default." />
+    <MESSAGE value="start_hotspot.py uses network_io to find default interface&#10;And automatically uses the default interface to add ip masquerading rule." />
+    <option name="LAST_COMMIT_MESSAGE" value="start_hotspot.py uses network_io to find default interface&#10;And automatically uses the default interface to add ip masquerading rule." />
+  </component>
+</project>

@@ -21,15 +21,21 @@ SELF_IP_ADDRESS = "192.168.1.1/24"
 # INTERFACE WITH WAN ACCESS
 WAN_INTERFACE = ""
 
-def start_hotspot(interface_name:str, internet_enabled=True) -> None:
+def start_hotspot(interface_name:str, internet_enabled=True, start_captive_portal=True) -> None:
     """
     Start a WiFi hotspot on the given interface
     :param interface_name: The interface to start the WiFi hotspot on
     :param internet_enabled: True -> Enables IP Masquerading to the interface with default route
                              False -> Does nothing, and the new hotspot is not connected to the internet
+    :param start_captive_portal: Start a captive portal
     :return: None
     """
     print(f"Interface name received: {interface_name}")
+
+    # Check the arguments
+    if start_captive_portal:
+        print("\n'start_captive_portal' is set to True. Therefore, it overrides 'internet_enabled' to False.")
+        internet_enabled = False
 
     # Read the config files
     print(f"Reading file {HOSTAPD_CONFIG}")
@@ -75,6 +81,10 @@ def start_hotspot(interface_name:str, internet_enabled=True) -> None:
     # Start dnsmasq service
     print("Starting dnsmasq service")
     os.system("systemctl start dnsmasq.service")
+
+    # Start captive portal
+    if start_captive_portal:
+        network_io.start_captive_portal(interface_name)
 
     if internet_enabled:
         # Add iptable masquerading rule

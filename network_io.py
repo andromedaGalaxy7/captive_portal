@@ -1,5 +1,7 @@
 import subprocess
 import re
+from portal import app
+import os
 
 DEFAULT_INTERFACE_PATTERN = re.compile(r"\sdev\s([A-Za-z0-9]+)\s")
 
@@ -15,5 +17,37 @@ def find_gateway_interface() -> str:
         return DEFAULT_INTERFACE_PATTERN.findall(def_route)[0]
     return ""
 
+def start_captive_portal(ap_interface) -> bool:
+    """
+    starts a captive portal
+    @ap_interface: The interface where the Access Point is currently active
+    :return: True if operation succeeded, False otherwise
+    """
+
+    # Redirect port 80 to port 8080
+    os.system(f"sudo iptables --table nat -A PREROUTING -i {ap_interface} -p tcp --dport 80 -j REDIRECT --to-port 8080")
+
+    # Allow only DNS and DHCP traffic
+    os.system(f"sudo iptables --table filter -A FORWARD -i {ap_interface} -p udp --dport 53 -j ACCEPT")
+    os.system(f"sudo iptables --table filter -A FORWARD -i {ap_interface} -p tcp --dport 53 -j ACCEPT")
+
+    os.system(f"sudo iptables --table filter -A FORWARD -i {ap_interface} -p udp --dport 67 -j ACCEPT")
+    os.system(f"sudo iptables --table filter -A FORWARD -i {ap_interface} -p udp --sport 67 -j ACCEPT")
+
+    os.system(f"sudo iptables --table filter -A FORWARD -i {ap_interface} -p udp --dport 68 -j ACCEPT")
+    os.system(f"sudo iptables --table filter -A FORWARD -i {ap_interface} -p udp --sport 68 -j ACCEPT")
+
+    os.system(f"sudo iptables --table filter -A FORWARD -i {ap_interface} -p tcp --dport 80 -j ACCEPT")
+    #os.system("sudo iptables --table filter -A FORWARD -i {ap_interface} -p tcp --dport 443 -j ACCEPT")
+
+    os.system(f"sudo iptables --table filter -A FORWARD -i {ap_interface} -j REJECT")
+
+    # Launch the flask application
+    print(f"Launching the captive portal HTTP server.")
+    os.chdir("portal")
+    app.start_server()
+
 if __name__ == "__main__":
-    find_gateway_interface()
+    print(f"Launching the captive portal HTTP server.")
+    os.chdir("portal")
+    app.start_server()
