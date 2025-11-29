@@ -31,10 +31,10 @@ def allow_mac_address(mac_addr: str, ap_interface: str) -> bool:
     exit_interface = network_io.find_gateway_interface()
     if exit_interface:
         # Add rule in the filter table forward chain
-        os.system(f"ipconfig --table filter -I FORWARD -m mac --mac-source {mac_addr} -j ACCEPT")
+        os.system(f"iptables --table filter -I FORWARD -m mac --mac-source {mac_addr} -j ACCEPT")
 
         # Add rule in the nat post-routing chain
-        os.system(f"ipconfig --table nat -I POSTROUTING -m mac --mac-source {mac_addr} -i {ap_interface} -o {exit_interface} -j masquerade")
+        os.system(f"iptables --table nat -I POSTROUTING -m mac --mac-source {mac_addr} -i {ap_interface} -o {exit_interface} -j masquerade")
 
         return True
     return False

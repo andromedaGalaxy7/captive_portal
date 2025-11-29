@@ -66,4 +66,4 @@ def start_server(port=DEFAULT_PORT, bind_address=DEFAULT_BIND_ADDRESS) -> None:
     app.run(port=port, host=bind_address)
 
 if __name__ == "__main__":
-    start_server(bind_address="127.0.0.1", port=8080)
+    start_server(bind_address="192.168.1.1", port=8080)
