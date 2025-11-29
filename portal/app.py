@@ -26,15 +26,11 @@ def verify() -> Response:
     if request.method == "GET":
         password = request.args.get("pass")
         if password == verification_password:
-            mac_address = mac_filtering_tools.get_mac_from_ip(request.remote_addr)
-            if mac_address and interface_used:
-                success = mac_filtering_tools.allow_mac_address(mac_address, interface_used)
+                success = mac_filtering_tools.allow_ip_address(request.remote_addr)
                 if success:
                     return send_from_directory("static", "thank_you.html")
                 else:
                     print("cannot find any interface with internet access.")
-            else:
-                print(f"Cannot resolve mac address for IP: {request.remote_addr}")
         else:
             print(f"Wrong password -> {password} from IP address {request.remote_addr}")
 

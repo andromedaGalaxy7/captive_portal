@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c911f4a7-3206-4537-8d10-2625914b93e0" name="Changes" comment="Added internet access on correct password, still in beta state">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mac_filtering_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/mac_filtering_tools.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/app.py" afterDir="false" />
     </list>
