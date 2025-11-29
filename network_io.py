@@ -45,9 +45,4 @@ def start_captive_portal(ap_interface) -> bool:
     # Launch the flask application
     print(f"Launching the captive portal HTTP server.")
     os.chdir("portal")
-    app.start_server()
-
-if __name__ == "__main__":
-    print(f"Launching the captive portal HTTP server.")
-    os.chdir("portal")
-    app.start_server()
+    app.start_server(bind_address="192.168.1.1", port=8080)

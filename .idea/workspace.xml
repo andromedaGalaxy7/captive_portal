@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c911f4a7-3206-4537-8d10-2625914b93e0" name="Changes" comment="start_hotspot.py uses network_io to find default interface&#10;And automatically uses the default interface to add ip masquerading rule.">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/wifi_hotspot.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/static/thank_you.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dnsmasq.conf" beforeDir="false" afterPath="$PROJECT_DIR$/dnsmasq.conf" afterDir="false" />
+    <list default="true" id="c911f4a7-3206-4537-8d10-2625914b93e0" name="Changes" comment="Added a test captive portal that launches after everything is set up.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostapd.conf" beforeDir="false" afterPath="$PROJECT_DIR$/hostapd.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/network_io.py" beforeDir="false" afterPath="$PROJECT_DIR$/network_io.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start_hotspot.py" beforeDir="false" afterPath="$PROJECT_DIR$/start_hotspot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,18 +34,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.app.executor": "Run",
-    "Python.network_io.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.network_io.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -117,7 +109,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762951650570</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added a test captive portal that launches after everything is set up.">
+      <option name="closed" value="true" />
+      <created>1764105742264</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1764105742264</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -127,6 +127,7 @@
     <MESSAGE value="Typo in DNSMASQ_TARGET_PATH variable" />
     <MESSAGE value="Created network_io&#10;A helper module to find the interface that has the default gateway. &#10;Uses iptools' ip by default." />
     <MESSAGE value="start_hotspot.py uses network_io to find default interface&#10;And automatically uses the default interface to add ip masquerading rule." />
-    <option name="LAST_COMMIT_MESSAGE" value="start_hotspot.py uses network_io to find default interface&#10;And automatically uses the default interface to add ip masquerading rule." />
+    <MESSAGE value="Added a test captive portal that launches after everything is set up." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a test captive portal that launches after everything is set up." />
   </component>
 </project>
