@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c911f4a7-3206-4537-8d10-2625914b93e0" name="Changes" comment="Added a test captive portal that launches after everything is set up.">
+    <list default="true" id="c911f4a7-3206-4537-8d10-2625914b93e0" name="Changes" comment="Added favicon and fixed an error that return METHOD NOW ALLOWED on POST requests">
+      <change afterPath="$PROJECT_DIR$/mac_filtering_tools.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hostapd.conf" beforeDir="false" afterPath="$PROJECT_DIR$/hostapd.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/network_io.py" beforeDir="false" afterPath="$PROJECT_DIR$/network_io.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start_hotspot.py" beforeDir="false" afterPath="$PROJECT_DIR$/start_hotspot.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -39,6 +41,7 @@
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.mac_filtering_tools.executor&quot;: &quot;Run&quot;,
     &quot;Python.network_io.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
@@ -46,6 +49,58 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
 }</component>
+  <component name="RunManager" selected="Python.app">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="wifi_hotspot" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/portal" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/portal/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mac_filtering_tools" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="wifi_hotspot" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mac_filtering_tools.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.app" />
+        <item itemvalue="Python.mac_filtering_tools" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -117,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764105742264</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added favicon and fixed an error that return METHOD NOW ALLOWED on POST requests">
+      <option name="closed" value="true" />
+      <created>1764438154320</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1764438154320</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -128,6 +191,7 @@
     <MESSAGE value="Created network_io&#10;A helper module to find the interface that has the default gateway. &#10;Uses iptools' ip by default." />
     <MESSAGE value="start_hotspot.py uses network_io to find default interface&#10;And automatically uses the default interface to add ip masquerading rule." />
     <MESSAGE value="Added a test captive portal that launches after everything is set up." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a test captive portal that launches after everything is set up." />
+    <MESSAGE value="Added favicon and fixed an error that return METHOD NOW ALLOWED on POST requests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added favicon and fixed an error that return METHOD NOW ALLOWED on POST requests" />
   </component>
 </project>

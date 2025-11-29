@@ -64,13 +64,23 @@
         font-size: 0.8rem;
         opacity: 0.8;
     }
+
+    #pass{
+        margin: 1rem;
+        border-radius: 0.5rem;
+        font-size: large;
+    }
 </style>
 </head>
 <body>
     <div class="container">
         <h1>Welcome!</h1>
-        <p>Thank you for connecting to our WiFi network. Please click below to start browsing.</p>
-        <a href="thank_you.html" class="button">Continue</a>
+        <p>Thank you for connecting to our WiFi network. Please type the password and click below to start browsing.</p>
+        <form action="verify">
+            <input type="password" name="pass" id="pass" required>
+            <br>
+            <input type="submit" class="button" value="Continue">
+        </form>
         <footer>&copy; 2025 Your WiFi Network</footer>
     </div>
 </body>

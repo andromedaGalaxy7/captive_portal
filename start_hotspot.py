@@ -30,9 +30,10 @@ def start_hotspot(interface_name:str, internet_enabled=True, start_captive_porta
     :param start_captive_portal: Start a captive portal
     :return: None
     """
+
     print(f"Interface name received: {interface_name}")
 
-    # Check the arguments
+    # # Check the arguments
     if start_captive_portal:
         print("\n'start_captive_portal' is set to True. Therefore, it overrides 'internet_enabled' to False.")
         internet_enabled = False
@@ -82,6 +83,8 @@ def start_hotspot(interface_name:str, internet_enabled=True, start_captive_porta
     print("Starting dnsmasq service")
     os.system("systemctl start dnsmasq.service")
 
+    print("\n\nWiFi Hotspot has been started successfully.\n\tEnjoy !!! ")
+
     # Start captive portal
     if start_captive_portal:
         network_io.start_captive_portal(interface_name)
@@ -99,7 +102,6 @@ def start_hotspot(interface_name:str, internet_enabled=True, start_captive_porta
             os.system(f"iptables --table nat -A POSTROUTING -o {alternate_interface} -j MASQUERADE")
         else:
             print("No interface has a default route. Please fix your internet connection to allow internet access to the hotspot.")
-    print("\n\nWiFi Hotspot has been started successfully.\n\tEnjoy !!! ")
 
 def abrupt_exit(error_msg:str) -> None:
     """

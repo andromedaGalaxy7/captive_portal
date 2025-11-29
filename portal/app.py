@@ -1,9 +1,16 @@
-from flask import Flask, send_from_directory, Response
+from flask import Flask, send_from_directory, Response, request
 import os
+import mac_filtering_tools
 
 app = Flask(__name__)
 DEFAULT_PORT = 8080
 DEFAULT_BIND_ADDRESS = "127.0.0.1"
+
+# Variable for the interface being used
+interface_used = None
+
+# password
+verification_password = "fireball"
 
 # Homepage route
 @app.route("/", methods=["GET", "POST"])
@@ -13,6 +20,25 @@ def home() -> Response:
     :return: The homepage as a response object
     """
     return send_from_directory("static", "index.html")
+
+@app.route("/verify", methods=["GET", "POST"])
+def verify() -> Response:
+    if request.method == "GET":
+        password = request.args.get("pass")
+        if password == verification_password:
+            mac_address = mac_filtering_tools.get_mac_from_ip(request.remote_addr)
+            if mac_address and interface_used:
+                success = mac_filtering_tools.allow_mac_address(mac_address, interface_used)
+                if success:
+                    return send_from_directory("static", "thank_you.html")
+                else:
+                    print("cannot find any interface with internet access.")
+            else:
+                print(f"Cannot resolve mac address for IP: {request.remote_addr}")
+        else:
+            print(f"Wrong password -> {password} from IP address {request.remote_addr}")
+
+    return home()
 
 # Fetch all the files from the static path if it even exists.
 @app.route("/<path:path>", methods=["GET", "POST"])
@@ -40,4 +66,4 @@ def start_server(port=DEFAULT_PORT, bind_address=DEFAULT_BIND_ADDRESS) -> None:
     app.run(port=port, host=bind_address)
 
 if __name__ == "__main__":
-    start_server(bind_address="192.168.1.1", port=8080)
+    start_server(bind_address="127.0.0.1", port=8080)
