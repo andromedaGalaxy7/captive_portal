@@ -12,6 +12,9 @@ interface_used = None
 # password
 verification_password = "fireball"
 
+# allowed IPs list
+allowed_ips = []
+
 # Homepage route
 @app.route("/", methods=["GET", "POST"])
 def home() -> Response:
@@ -26,8 +29,13 @@ def verify() -> Response:
     if request.method == "GET":
         password = request.args.get("pass")
         if password == verification_password:
-                success = mac_filtering_tools.allow_ip_address(request.remote_addr)
+                if request.remote_addr not in allowed_ips:
+                    success = mac_filtering_tools.allow_ip_address(request.remote_addr)
+                else:
+                    success = True
+                    print(f"IP Address {request.remote_addr} already in allowed IPs list.")
                 if success:
+                    allowed_ips.append(request.remote_addr)
                     return send_from_directory("static", "thank_you.html")
                 else:
                     print("cannot find any interface with internet access.")

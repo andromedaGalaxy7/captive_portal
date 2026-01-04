@@ -27,6 +27,11 @@ def start_captive_portal(ap_interface) -> bool:
     # Redirect port 80 to port 8080
     os.system(f"sudo iptables --table nat -A PREROUTING -i {ap_interface} -p tcp --dport 80 -j REDIRECT --to-port 8080")
 
+    # Redirect DNS for anauthenticated clients
+
+    os.system(f"sudo iptables --table nat -A PREROUTING -i {ap_interface} -p udp --dport 53 -j DNAT --to-destination 192.168.1.1")
+    os.system(f"sudo iptables --table nat -A PREROUTING -i {ap_interface} -p tcp --dport 53 -j DNAT --to-destination 192.168.1.1")
+
     # Allow only DNS and DHCP traffic
     os.system(f"sudo iptables --table filter -A FORWARD -i {ap_interface} -p udp --dport 53 -j ACCEPT")
     os.system(f"sudo iptables --table filter -A FORWARD -i {ap_interface} -p tcp --dport 53 -j ACCEPT")

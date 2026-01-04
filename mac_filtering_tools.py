@@ -34,7 +34,7 @@ def allow_mac_address(mac_addr: str, ap_interface: str) -> bool:
         os.system(f"iptables --table filter -I FORWARD -m mac --mac-source {mac_addr} -j ACCEPT")
 
         # Add rule in the nat post-routing chain
-        os.system(f"iptables --table nat -I POSTROUTING -m mac --mac-source {mac_addr} -o {exit_interface} -j masquerade")
+        os.system(f"iptables --table nat -I POSTROUTING -m mac --mac-source {mac_addr} -o {exit_interface} -j MASQUERADE")
 
         # Log
         print(f"Added rule for mac address: {mac_addr}")
@@ -54,10 +54,13 @@ def allow_ip_address(ip_addr: str) -> bool:
         os.system(f"iptables --table filter -I FORWARD -s {ip_addr} -j ACCEPT")
 
         # Add rule in the nat post-routing chain
-        os.system(f"iptables --table nat -I POSTROUTING -s {ip_addr} -o {exit_interface} -j masquerade")
+        os.system(f"iptables --table nat -I POSTROUTING -s {ip_addr} -o {exit_interface} -j MASQUERADE")
+
+        # Add rule in the nat pre-routing chain
+        os.system(f"iptables --table nat -I PREROUTING -s {ip_addr} -j ACCEPT")
 
         # Log
-        print(f"Added rule for IP address: {ip_addr}")
+        print(f"Added rule for IP address: {ip_addr} for exit interface: {exit_interface}")
 
         return True
     return False
