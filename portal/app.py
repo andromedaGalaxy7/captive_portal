@@ -22,7 +22,7 @@ def home() -> Response:
     The homepage route, the first page the user sees
     :return: The homepage as a response object
     """
-    return send_from_directory("static", "index.html")
+    return send_from_directory("static", "index.html"), 511
 
 @app.route("/verify", methods=["GET", "POST"])
 def verify() -> Response:
